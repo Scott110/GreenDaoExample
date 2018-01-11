@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/GreenDaoExample.iml" filepath="$PROJECT_DIR$/GreenDaoExample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/componentOrder/componentOrder.iml" filepath="$PROJECT_DIR$/componentOrder/componentOrder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/componentuser/componentuser.iml" filepath="$PROJECT_DIR$/componentuser/componentuser.iml" />
+    </modules>
+  </component>
+</project>
