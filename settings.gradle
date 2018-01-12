@@ -1,1 +1,1 @@
-include ':app', ':componentuser', ':componentOrder'
+include ':app', ':componentuser', ':componentOrder', ':libdb'

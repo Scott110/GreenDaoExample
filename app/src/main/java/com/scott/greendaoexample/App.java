@@ -2,12 +2,6 @@ package com.scott.greendaoexample;
 
 import android.app.Application;
 
-
-import com.scott.order.db.DaoMaster;
-import com.zto.scott.componentorder.Order;
-
-import org.greenrobot.greendao.database.Database;
-
 /**
  * Created by Scott on 2018/1/11.
  */
