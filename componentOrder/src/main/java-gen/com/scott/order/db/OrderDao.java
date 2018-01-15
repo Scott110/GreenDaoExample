@@ -26,6 +26,7 @@ public class OrderDao extends AbstractDao<Order, Long> {
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property Price = new Property(1, double.class, "price", false, "PRICE");
+        public final static Property Name = new Property(2, String.class, "name", false, "NAME");
     }
 
 
@@ -42,7 +43,8 @@ public class OrderDao extends AbstractDao<Order, Long> {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"ORDER\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
-                "\"PRICE\" REAL NOT NULL );"); // 1: price
+                "\"PRICE\" REAL NOT NULL ," + // 1: price
+                "\"NAME\" TEXT);"); // 2: name
     }
 
     /** Drops the underlying database table. */
@@ -60,6 +62,11 @@ public class OrderDao extends AbstractDao<Order, Long> {
             stmt.bindLong(1, id);
         }
         stmt.bindDouble(2, entity.getPrice());
+ 
+        String name = entity.getName();
+        if (name != null) {
+            stmt.bindString(3, name);
+        }
     }
 
     @Override
@@ -71,6 +78,11 @@ public class OrderDao extends AbstractDao<Order, Long> {
             stmt.bindLong(1, id);
         }
         stmt.bindDouble(2, entity.getPrice());
+ 
+        String name = entity.getName();
+        if (name != null) {
+            stmt.bindString(3, name);
+        }
     }
 
     @Override
@@ -82,7 +94,8 @@ public class OrderDao extends AbstractDao<Order, Long> {
     public Order readEntity(Cursor cursor, int offset) {
         Order entity = new Order( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
-            cursor.getDouble(offset + 1) // price
+            cursor.getDouble(offset + 1), // price
+            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2) // name
         );
         return entity;
     }
@@ -91,6 +104,7 @@ public class OrderDao extends AbstractDao<Order, Long> {
     public void readEntity(Cursor cursor, Order entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setPrice(cursor.getDouble(offset + 1));
+        entity.setName(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
      }
     
     @Override

@@ -12,10 +12,12 @@ public class Order {
     @Id(autoincrement = true)
     Long id;
     double price;
-    @Generated(hash = 1657835637)
-    public Order(Long id, double price) {
+    String name;
+    @Generated(hash = 703398684)
+    public Order(Long id, double price, String name) {
         this.id = id;
         this.price = price;
+        this.name = name;
     }
     @Generated(hash = 1105174599)
     public Order() {
@@ -31,5 +33,11 @@ public class Order {
     }
     public void setPrice(double price) {
         this.price = price;
+    }
+    public String getName() {
+        return this.name;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
 }

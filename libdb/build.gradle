@@ -21,7 +21,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
-        sourceSets{
+
+      sourceSets{
             main{
                 java.srcDirs=['src','src/main/java-gen']
             }
@@ -35,5 +36,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
     api 'org.greenrobot:greendao:3.2.2'
+    api 'net.zetetic:android-database-sqlcipher:3.5.1'
 
 }
